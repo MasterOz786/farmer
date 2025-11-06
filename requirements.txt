@@ -1,4 +1,5 @@
-wget
+requests
+beautifulsoup4
 sklearn
 pandas
 seaborn
