@@ -1,6 +1,6 @@
 requests
 beautifulsoup4
-sklearn
+scikit-learn
 pandas
 seaborn
 matplotlib

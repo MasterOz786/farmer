@@ -1,0 +1,23 @@
+name: dvc-cml
+
+on: [push]
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - uses: iterative/setup-cml@v1
+      - name: Train Model
+        env: 
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pip install -r requirements.txt dvc
+          dvc repro
+          git fetch --prune
+          # dvc metrics diff --md master > report.md
+          
+          echo "## RUN" > report.md
+          echo "![](./by_region.png)" >> report.md
+          cml comment create report.md

@@ -4,3 +4,6 @@ include
 share
 pyvenv.cfg
 __pycache__
+*.csv
+*.json
+*.png
